@@ -536,3 +536,173 @@ footer { background: #171923; color: #ddd; padding: 18px 0; font-size: 12px; }
     font-size: 15px;
   }
 }
+
+
+/* ===== PROFESSIONAL CONTACT & FOUNDER DESIGN ===== */
+
+#contact.contact-section {
+  background: #ffffff;
+  border: 1px solid #e5e9f0;
+  border-top: 4px solid #b51225;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 24px rgba(20, 35, 60, 0.07);
+  box-sizing: border-box;
+}
+
+#contact.contact-section > h3 {
+  color: #17243a;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e8ecf2;
+  letter-spacing: -0.4px;
+}
+
+#contact .contact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+}
+
+#contact .contact-details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+#contact .contact-details p {
+  margin: 0;
+  color: #526075;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+#contact .contact-details strong {
+  display: inline-block;
+  color: #17243a;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+#contact .contact-details a {
+  color: #a91024;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+#contact .contact-details a:hover {
+  color: #17243a;
+  text-decoration: underline;
+}
+
+#contact .founder-profile {
+  flex: 0 0 170px;
+  width: 170px;
+  text-align: center;
+  padding: 18px 12px;
+  background: #f6f8fb;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+#contact .founder-photo {
+  display: block;
+  width: 100px;
+  height: 125px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 8px;
+  border: 2px solid #b51225;
+  background: #ffffff;
+  margin: 0 auto 13px;
+  box-shadow: 0 4px 12px rgba(20, 35, 60, 0.12);
+}
+
+#contact .founder-profile h3 {
+  color: #17243a;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+#contact .founder-profile p {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  background: #b51225;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  #contact.contact-section {
+    padding: 22px 14px;
+  }
+
+  #contact.contact-section > h3 {
+    font-size: 21px;
+    margin-bottom: 22px;
+  }
+
+  #contact .contact-layout {
+    gap: 18px;
+    align-items: center;
+  }
+
+  #contact .contact-details {
+    gap: 22px;
+  }
+
+  #contact .contact-details p {
+    font-size: 12px;
+  }
+
+  #contact .contact-details strong {
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+
+  #contact .contact-details a {
+    font-size: 12px;
+  }
+
+  #contact .founder-profile {
+    flex: 0 0 118px;
+    width: 118px;
+    padding: 12px 6px;
+  }
+
+  #contact .founder-photo {
+    width: 76px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  #contact .founder-profile h3 {
+    font-size: 13px;
+  }
+
+  #contact .founder-profile p {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}
+
