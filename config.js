@@ -1,7 +1,7 @@
 
 window.TEZ_CONFIG = {
   SUPABASE_URL: "https://ipgoqckasnxhcctfcbow.supabase.co",
-  SUPABASE_ANON_KEY: "यहाँ_अपनी_पूरी_Publishable_Key_डालें",
+  SUPABASE_ANON_KEY: sb_publishable_Kd8aPzW0aWEJXzyJzNFVHg_cYAWiCXe
   SOCIAL_URLS: {
     facebook: "PASTE_YOUR_FACEBOOK_URL",
     instagram: "PASTE_YOUR_INSTAGRAM_URL",
