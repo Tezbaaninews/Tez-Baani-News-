@@ -1,14 +1,229 @@
+
 <!doctype html>
-<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#b51222"><meta name="description" content="Tez Baani News — पंजाब, हरियाणा, देश-दुनिया और स्थानीय खबरें">
-<title>Tez Baani News | ताज़ा खबरें</title><link rel="stylesheet" href="style.css"></head>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b51222">
+  <meta name="description" content="Tez Baani News — Latest news from Punjab, Haryana, India and around the world">
+  <title>Tez Baani News | Latest News</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Breaking News ticker */
+    .breaking {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      min-width: 0;
+      height: 58px;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      box-sizing: border-box;
+      border: 1px solid #e6cbd0;
+      border-radius: 12px;
+      background: #fffafa;
+    }
+
+    .breaking b {
+      display: flex;
+      flex: 0 0 145px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      padding: 8px;
+      box-sizing: border-box;
+      color: #fff;
+      background: #b51222;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .breaking .ticker-window {
+      flex: 1 1 0;
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: #fffafa;
+    }
+
+    .breaking #ticker {
+      display: inline-block;
+      flex: 0 0 auto;
+      width: max-content;
+      max-width: none;
+      padding-left: 100%;
+      white-space: nowrap;
+      animation: newsTicker 22s linear infinite;
+      color: #20212a;
+      font-weight: 700;
+      box-sizing: content-box;
+    }
+
+    .breaking:hover #ticker {
+      animation-play-state: paused;
+    }
+
+    @keyframes newsTicker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    .brand .mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .brand .mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .heroart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .heroart img {
+      display: block;
+      width: min(65%, 220px);
+      height: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 480px) {
+      .breaking {
+        height: 56px;
+      }
+
+      .breaking b {
+        flex-basis: 125px;
+        font-size: 13px;
+      }
+
+      .breaking #ticker {
+        font-size: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .breaking #ticker {
+        animation-duration: 60s;
+      }
+    }
+  </style>
+</head>
+
 <body>
-<div class="topline"><div class="wrap topinner"><span>तेज़ खबरें, आपके साथ</span><nav><a href="#about">हमारे बारे में</a><a href="#contact">Contact</a></nav></div></div>
-<header class="brand wrap"><a class="mark" href="index.html">TB</a><div><a class="brandname" href="index.html">Tez Baani <span>News</span></a><p>खबर वही, जो मायने रखे</p></div><div id="social" class="social"></div></header>
-<div class="nav"><div class="wrap navinner"><button id="menuToggle">☰ menu</button><nav id="cats"><a href="#latest" data-cat="">ताज़ा खबरें</a><a href="#latest" data-cat="Breaking News">Breaking News</a><a href="#latest" data-cat="Punjab News">Punjab News</a><a href="#latest" data-cat="Haryana News">Haryana News</a><a href="#latest" data-cat="देश-दुनिया">देश-दुनिया</a><a href="#latest" data-cat="स्थानीय खबरें">स्थानीय खबरें</a></nav><b>● ताज़ा अपडेट</b></div></div>
-<main class="wrap"><div class="breaking"><b>BREAKING</b><span id="ticker">Tez Baani News में आपका स्वागत है — ताज़ा खबरें यहाँ पढ़ें।</span></div>
-<section class="hero"><div><small>TEZ BAANI NEWS</small><h1>पंजाब, हरियाणा और देश-दुनिया की हर बड़ी खबर</h1><p>ताज़ा अपडेट, स्थानीय मुद्दे और जनहित से जुड़ी खबरें — एक ही जगह।</p><a class="link" href="#latest">ताज़ा खबरें पढ़ें →</a></div><div class="heroart"><strong>TB</strong><span>NEWS</span></div></section>
-<section id="latest"><div class="sectionhead"><div><small>LATEST UPDATES</small><h2>ताज़ा खबरें</h2></div><span id="filterLabel">सभी खबरें</span></div><div id="newsGrid" class="grid"><p class="empty">वेबसाइट तैयार है। असली खबरें दिखाने के लिए README में Supabase सेटअप पूरा करें।</p></div><p id="msg" class="muted"></p></section>
-<section id="about" class="about"><div><small>हमारे बारे में</small><h2>Tez Baani News</h2><p>पंजाब, हरियाणा, देश-दुनिया और स्थानीय स्तर की ताज़ा खबरें, सामाजिक मुद्दे और जनहित से जुड़ी जानकारी।</p></div><div id="contact"><h3>संपर्क</h3><p>खबर या सुझाव भेजने के लिए हमारे सोशल मीडिया लिंक का उपयोग करें।</p><div id="social2"></div></div></section></main>
-<footer><div class="wrap foot"><span>© <span id="year"></span> Tez Baani News</span><a href="admin.html">Admin</a><span>खबर वही, जो मायने रखे</span></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script></body></html>
+  <div class="topline">
+    <div class="wrap topinner">
+      <span>Fast News, Always With You</span>
+      <nav>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="brand wrap">
+    <a class="mark" href="index.html" aria-label="Tez Baani News Home">
+      <img src="logo.png" alt="Tez Baani News Logo"
+           onerror="this.style.display='none';this.parentElement.textContent='TB'">
+    </a>
+    <div>
+      <a class="brandname" href="index.html">Tez Baani <span>News</span></a>
+      <p>News That Matters</p>
+    </div>
+    <div id="social" class="social"></div>
+  </header>
+
+  <div class="nav">
+    <div class="wrap navinner">
+      <button id="menuToggle" type="button">☰ Menu</button>
+      <nav id="cats">
+        <a href="#latest" data-cat="">Latest News</a>
+        <a href="#latest" data-cat="Breaking News">Breaking News</a>
+        <a href="#latest" data-cat="Punjab News">Punjab News</a>
+        <a href="#latest" data-cat="Haryana News">Haryana News</a>
+        <a href="#latest" data-cat="देश-दुनिया">India &amp; World</a>
+        <a href="#latest" data-cat="स्थानीय खबरें">Local News</a>
+      </nav>
+      <b>● Live Updates</b>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="breaking">
+      <b>BREAKING NEWS</b>
+      <div class="ticker-window">
+        <span id="ticker">Welcome to Tez Baani News — Read the latest updates here.</span>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <small>TEZ BAANI NEWS</small>
+        <h1>पंजाब, हरियाणा और देश-दुनिया की हर बड़ी खबर</h1>
+        <p>ताज़ा अपडेट, स्थानीय मुद्दे और जनहित से जुड़ी खबरें — एक ही जगह।</p>
+        <a class="link" href="#latest">ताज़ा खबरें पढ़ें →</a>
+      </div>
+      <div class="heroart">
+        <img src="logo.png" alt="Tez Baani News Logo"
+             onerror="this.style.display='none'">
+        <span>NEWS</span>
+      </div>
+    </section>
+
+    <section id="latest">
+      <div class="sectionhead">
+        <div>
+          <small>LATEST UPDATES</small>
+          <h2>Latest News</h2>
+        </div>
+        <span id="filterLabel">All News</span>
+      </div>
+
+      <div id="newsGrid" class="grid">
+        <p class="empty">Loading news... Please complete the Supabase setup to display published news.</p>
+      </div>
+      <p id="msg" class="muted"></p>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <small>ABOUT US</small>
+        <h2>Tez Baani News</h2>
+        <p>Your source for the latest news from Punjab, Haryana, India and around the world, including local issues, social developments and public-interest stories.</p>
+      </div>
+      <div id="contact">
+        <h3>Contact Us</h3>
+        <p>Have a news tip or suggestion? Connect with us through our social media channels.</p>
+        <div id="social2"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> Tez Baani News. All rights reserved.</span>
+      <a href="admin.html">Admin Login</a>
+      <span>News That Matters</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
