@@ -25,3 +25,33 @@
   max-width: 220px;
   max-height: 220px;
 }
+
+.brand .mark {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.brand .mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.heroart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroart img {
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
