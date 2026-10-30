@@ -1,7 +1,7 @@
 // Browser-safe settings only. NEVER put a Supabase service_role/secret key here.
 window.TEZ_CONFIG = {
-  SUPABASE_URL: "PASTE_SUPABASE_PROJECT_URL_HERE",
-  SUPABASE_ANON_KEY: "PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE",
+  SUPABASE_URL: https://ipgoqckasnxhcctfcbow.supabase.co/rest/v1/
+  SUPABASE_ANON_KEY: sb_publishable_Kd8aPzW0aWEJXzyJzNFVHg_cYAWiCXe
   SOCIAL_URLS: {
     facebook: "PASTE_YOUR_FACEBOOK_URL",
     instagram: "PASTE_YOUR_INSTAGRAM_URL",
