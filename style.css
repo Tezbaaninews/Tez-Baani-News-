@@ -435,3 +435,104 @@ footer { background: #171923; color: #ddd; padding: 18px 0; font-size: 12px; }
   height: 100%;
   object-fit: contain;
 }
+
+
+/* Contact Us Section */
+.contact-section {
+  padding: 45px 6%;
+  margin-top: 30px;
+  background: #f7f8fa;
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.contact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-item h3 {
+  margin-bottom: 8px;
+}
+
+.contact-item a {
+  color: #b5121b;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.founder-profile {
+  width: 200px;
+  min-width: 160px;
+  text-align: center;
+}
+
+.founder-photo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #b5121b;
+}
+
+.founder-profile h3 {
+  margin: 12px 0 5px;
+}
+
+.founder-profile p {
+  margin: 0;
+  color: #666;
+}
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 30px 5%;
+  }
+
+  .contact-layout {
+    gap: 25px;
+    align-items: center;
+  }
+
+  .contact-details {
+    flex: 1;
+    min-width: 0;
+    gap: 25px;
+  }
+
+  .contact-item h3 {
+    font-size: 14px;
+  }
+
+  .contact-item a {
+    font-size: 12px;
+  }
+
+  .founder-profile {
+    width: 115px;
+    min-width: 115px;
+  }
+
+  .founder-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .founder-profile h3 {
+    font-size: 15px;
+  }
+}
