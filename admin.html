@@ -1,1 +1,275 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | Tez Baani News</title><link rel="stylesheet" href="style.css"></head><body><div class="topline"><div class="wrap topinner"><span>Tez Baani News — Admin</span><a href="index.html">वेबसाइट देखें</a></div></div><header class="brand wrap"><a class="mark" href="index.html">TB</a><div><a class="brandname" href="index.html">Tez Baani <span>News</span></a><p>सुरक्षित न्यूज़ मैनेजमेंट</p></div></header><main class="wrap admin"><section class="panel"><small>ADMIN ACCESS</small><h1>एडमिन पैनल</h1><p class="muted">पासवर्ड को वेबसाइट कोड में न लिखें। एडमिन अकाउंट Supabase में बनाएँ।</p><p id="setup" class="status"></p><form id="login"><div class="field"><label>Email</label><input id="email" type="email" autocomplete="username" required></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" required></div><button class="btn">सुरक्षित लॉगिन</button> <button class="btn secondary" type="button" id="logout">लॉगआउट</button><p id="authStatus" class="status"></p></form></section><section id="editor" class="hidden"><section class="panel"><small>PUBLISH NEWS</small><h2 id="formTitle">नई खबर प्रकाशित करें</h2><form id="newsForm"><input type="hidden" id="postId"><div class="field"><label>खबर का शीर्षक *</label><input id="title" maxlength="180" required></div><div class="row"><div class="field"><label>कैटेगरी *</label><select id="category"><option>Breaking News</option><option>Punjab News</option><option>Haryana News</option><option>देश-दुनिया</option><option>स्थानीय खबरें</option></select></div><div class="field"><label>रिपोर्टर</label><input id="author" value="Tez Baani News" maxlength="80"></div></div><div class="field"><label>संक्षिप्त विवरण</label><textarea id="summary" maxlength="400"></textarea></div><div class="field"><label>पूरी खबर *</label><textarea id="body" required></textarea></div><div class="field"><label>फोटो (JPG/PNG/WebP, अधिकतम 5 MB)</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp"><span id="photoStatus" class="status"></span></div><div class="field"><label>फोटो का विवरण</label><input id="alt" maxlength="180"></div><div class="field"><label>स्थिति</label><select id="status"><option value="published">अभी प्रकाशित करें</option><option value="draft">ड्राफ्ट रखें</option></select></div><button class="btn" id="save">खबर सेव करें</button> <button class="btn secondary" type="button" id="clear">नई खबर / साफ करें</button><p id="saveStatus" class="status"></p></form></section><section class="panel"><h2>खबरें मैनेज करें</h2><div id="posts">अभी कोई खबर लोड नहीं हुई।</div></section></section><section class="panel"><h2>पहली बार सेटअप?</h2><p>README.md में Supabase project, SQL security policies और admin account बनाने की प्रक्रिया है।</p><a class="link" href="README.md">सेटअप गाइड देखें →</a></section></main><footer><div class="wrap foot"><span>Tez Baani News</span><a href="index.html">होमपेज</a></div></footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script></body></html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17243a">
+  <title>Admin Panel | Tez Baani News</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .admin-brand-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #e5e9f0;
+      padding: 3px;
+      box-sizing: border-box;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .admin-brand p {
+      margin: 5px 0 0;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .admin h1,
+    .admin h2 {
+      color: #17243a;
+    }
+
+    .admin .panel {
+      border-radius: 12px;
+    }
+
+    .admin .field label {
+      color: #273449;
+      font-weight: 600;
+    }
+
+    .admin .status {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 600px) {
+      .admin-brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .admin-brand {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline">
+    <div class="wrap topinner">
+      <span>Tez Baani News — Admin</span>
+      <a href="index.html">View Website</a>
+    </div>
+  </div>
+
+  <header class="brand wrap">
+    <a class="mark" href="index.html" aria-label="Tez Baani News Home">
+      <img
+        src="logo.png01.jpg"
+        alt="Tez Baani News Logo"
+        class="admin-brand-logo"
+      >
+    </a>
+
+    <div class="admin-brand">
+      <div>
+        <a class="brandname" href="index.html">
+          Tez Baani <span>News</span>
+        </a>
+        <p>Secure News Management</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap admin">
+
+    <section class="panel">
+      <small>ADMIN ACCESS</small>
+      <h1>Admin Panel</h1>
+      <p class="muted">
+        Never store your password in website code.
+        Create and manage admin accounts securely through Supabase.
+      </p>
+
+      <p id="setup" class="status"></p>
+
+      <form id="login">
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            autocomplete="username"
+            placeholder="Enter your email"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            required
+          >
+        </div>
+
+        <button class="btn" type="submit">Login Securely</button>
+
+        <button
+          class="btn secondary"
+          type="button"
+          id="logout"
+        >
+          Logout
+        </button>
+
+        <p id="authStatus" class="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="editor" class="hidden">
+
+      <section class="panel">
+        <small>PUBLISH NEWS</small>
+        <h2 id="formTitle">Publish News</h2>
+
+        <form id="newsForm">
+          <input type="hidden" id="postId">
+
+          <div class="field">
+            <label for="title">News Headline *</label>
+            <input
+              id="title"
+              maxlength="180"
+              placeholder="Enter news headline"
+              required
+            >
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="category">Category *</label>
+              <select id="category">
+                <option>Breaking News</option>
+                <option>Punjab News</option>
+                <option>Haryana News</option>
+                <option>India &amp; World</option>
+                <option>Local News</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="author">Reporter / Author</label>
+              <input
+                id="author"
+                value="Tez Baani News"
+                maxlength="80"
+                placeholder="Enter reporter name"
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="summary">Short Description</label>
+            <textarea
+              id="summary"
+              maxlength="400"
+              placeholder="Write a short summary"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="body">Full News Story *</label>
+            <textarea
+              id="body"
+              placeholder="Write the complete news story"
+              required
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="photo">News Image (JPG, PNG or WebP, max 5 MB)</label>
+            <input
+              id="photo"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+            >
+            <span id="photoStatus" class="status"></span>
+          </div>
+
+          <div class="field">
+            <label for="alt">Image Description (Alt Text)</label>
+            <input
+              id="alt"
+              maxlength="180"
+              placeholder="Describe the image"
+            >
+          </div>
+
+          <div class="field">
+            <label for="status">Publication Status</label>
+            <select id="status">
+              <option value="published">Publish Now</option>
+              <option value="draft">Save as Draft</option>
+            </select>
+          </div>
+
+          <button class="btn" id="save" type="submit">
+            Save News
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            id="clear"
+          >
+            New Story / Clear Form
+          </button>
+
+          <p id="saveStatus" class="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Manage News</h2>
+        <div id="posts">Loading news...</div>
+      </section>
+
+    </section>
+
+    <section class="panel">
+      <h2>First-Time Setup?</h2>
+      <p>
+        Follow the README.md guide to configure your Supabase project,
+        database security policies and admin account.
+      </p>
+      <a class="link" href="README.md">Open Setup Guide →</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>Tez Baani News</span>
+      <a href="index.html">Home Page</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
