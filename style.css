@@ -706,3 +706,44 @@ footer { background: #171923; color: #ddd; padding: 18px 0; font-size: 12px; }
   }
 }
 
+.follow-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+#followerCount {
+  font-size: 28px;
+  color: #b51222;
+  font-weight: 800;
+}
+
+.follow-row p {
+  margin: 4px 0 0;
+  color: #6b7280;
+}
+
+#followButton {
+  background: #b51222;
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#followButton:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+#followMessage {
+  color: #6b7280;
+  margin-top: 14px;
+}
+
