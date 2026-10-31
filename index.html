@@ -154,6 +154,92 @@
       font-weight: 800;
     }
 
+    /* Founder profile in About Us */
+    .about-founder {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 28px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px #1518240a;
+    }
+
+    .about-founder .founder-photo {
+      display: block;
+      width: 145px;
+      height: 175px;
+      object-fit: cover;
+      object-position: center;
+      border: 4px solid #b51222;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+
+    .founder-info h3 {
+      margin: 0 0 10px;
+      color: #20212a;
+      font-size: 25px;
+    }
+
+    .founder-info p {
+      margin: 0;
+      color: #b51222;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .founder-info .founder-description {
+      margin-top: 12px;
+      color: #6b7280;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    /* Contact section contains contact details only */
+    .contact-section {
+      margin-top: 32px;
+      padding: 26px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-top: 5px solid #b51222;
+      border-radius: 18px;
+    }
+
+    .contact-section h3 {
+      margin-top: 0;
+      margin-bottom: 22px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .contact-details p {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      margin: 0;
+    }
+
+    .contact-details strong {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #20212a;
+      text-transform: uppercase;
+    }
+
+    .contact-details a {
+      color: #a40f22;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
     @media (max-width: 480px) {
       .breaking { height: 56px; }
 
@@ -168,10 +254,29 @@
         min-height: 250px;
         padding: 18px;
       }
-    }
 
-    @media (prefers-reduced-motion: reduce) {
-      #ticker { animation-duration: 60s; }
+      .about-founder {
+        gap: 16px;
+        padding: 16px;
+      }
+
+      .about-founder .founder-photo {
+        width: 112px;
+        height: 140px;
+      }
+
+      .founder-info h3 {
+        font-size: 20px;
+      }
+
+      .contact-section {
+        padding: 20px;
+      }
+
+      .contact-details {
+        flex-direction: column;
+        gap: 22px;
+      }
     }
   </style>
 </head>
@@ -209,8 +314,8 @@
         <a href="#latest" data-cat="Breaking News">Breaking News</a>
         <a href="#latest" data-cat="Punjab News">Punjab News</a>
         <a href="#latest" data-cat="Haryana News">Haryana News</a>
-        <a href="#latest" data-cat="देश-दुनिया">India &amp; World</a>
-        <a href="#latest" data-cat="स्थानीय खबरें">Local News</a>
+        <a href="#latest" data-cat="India & World">India &amp; World</a>
+        <a href="#latest" data-cat="Local News">Local News</a>
       </nav>
 
       <b>● Live Updates</b>
@@ -263,7 +368,7 @@
       </div>
 
       <div id="newsGrid" class="grid">
-        <p class="empty">Loading news... Please complete the Supabase setup to display published news.</p>
+        <p class="empty">Loading news...</p>
       </div>
 
       <p id="msg" class="muted"></p>
@@ -276,36 +381,42 @@
         <p>Your source for the latest news from Punjab, Haryana, India and around the world, including local issues, social developments and public-interest stories.</p>
       </div>
 
-<div id="contact" class="contact-section">
-  <h3>Contact Us</h3>
+      <!-- Founder profile now belongs to About Us -->
+      <div class="about-founder">
+        <img
+          src="rahul-singh.jpg.png"
+          alt="Rahul Singh, Founder of Tez Baani News"
+          class="founder-photo"
+          loading="lazy"
+        >
 
-  <div class="contact-layout">
-    <div class="contact-details">
-      <p>
-        <strong>E-Mail</strong><br>
-        <a href="mailto:tezbaaninews@gmail.com">
-          tezbaaninews@gmail.com
-        </a>
-      </p>
+        <div class="founder-info">
+          <h3>Rahul Singh</h3>
+          <p>Founder</p>
+          <p class="founder-description">
+            Founder of Tez Baani News.
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <p>
-        <strong>Mobile Number</strong><br>
-        <a href="tel:+919056823316">9056823316</a>
-      </p>
-    </div>
+    <!-- Contact Us now contains contact details only -->
+    <section id="contact" class="contact-section">
+      <h3>Contact Us</h3>
 
-    <div class="founder-profile">
-      <img
-        src="rahul-singh.jpg.png"
-        alt="Rahul Singh"
-        class="founder-photo"
-      >
-      <h3>Rahul Singh</h3>
-      <p>Founder</p>
-    </div>
-  </div>
-</div>
+      <div class="contact-details">
+        <p>
+          <strong>E-Mail</strong><br>
+          <a href="mailto:tezbaaninews@gmail.com">
+            tezbaaninews@gmail.com
+          </a>
+        </p>
 
+        <p>
+          <strong>Mobile Number</strong><br>
+          <a href="tel:+919056823316">9056823316</a>
+        </p>
+      </div>
     </section>
   </main>
 
